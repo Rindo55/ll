@@ -73,13 +73,13 @@ void showFront(struct Student* head) {
 }
 
 
-void searchPosition(struct Student* head, int position) {
+void searchRecordAtPosition(int position) {
     if (head == NULL) {
         printf("List is empty. No records to search.\n");
         return;
     }
 
-    struct Student* temp = head;
+    struct Student *temp = head;
     int count = 1;
 
     while (temp != NULL && count < position) {
@@ -89,12 +89,12 @@ void searchPosition(struct Student* head, int position) {
 
     if (temp != NULL) {
         printf("Record at position %d:\n", position);
-        printf("Roll Number: %d, Name: %s, Course: %s, Marks: %.2f\n",
-               temp->rollNumber, temp->name, temp->course, temp->marks);
+        printf("Name: %s, Roll No.: %d, Course: %s, Marks: %d\n", temp->name, temp->rollNo, temp->course, temp->marks);
     } else {
         printf("Position %d exceeds the length of the list.\n", position);
     }
 }
+
 struct Student* updateRecord(struct Student* head, int rollNumber, char name[], char course[], float marks) {
     struct Student* temp = head;
 
@@ -170,16 +170,9 @@ int main() {
                 showFront(head);
                 break;
 
-            case 4:
-                printf("Enter Position to Search: ");
+                printf("Enter position to search: ");
                 scanf("%d", &position);
-                position = searchPosition(head, position);
-                if (position != -1) {
-                    printf("Roll Number at position %d: %d\n", position, position);
-                } else {
-                    printf("Position not found.\n");
-                }
-                break;
+                searchRecordAtPosition(position);
 
             case 5:
                 printf("Enter Roll Number to Update: ");
