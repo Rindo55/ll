@@ -11,6 +11,7 @@ struct Student {
     struct Student* prev;
 };
 
+// Function to create a new student record
 struct Student* createStudent(int rollNumber, char name[], char course[], float marks) {
     struct Student* newStudent = (struct Student*)malloc(sizeof(struct Student));
     newStudent->rollNumber = rollNumber;
@@ -22,6 +23,7 @@ struct Student* createStudent(int rollNumber, char name[], char course[], float 
     return newStudent;
 }
 
+// Function to insert a student record at the end of the list
 struct Student* insertFromLast(struct Student* head, int rollNumber, char name[], char course[], float marks) {
     struct Student* newStudent = createStudent(rollNumber, name, course, marks);
 
@@ -40,6 +42,7 @@ struct Student* insertFromLast(struct Student* head, int rollNumber, char name[]
     return head;
 }
 
+// Function to delete a student record from the front of the list
 struct Student* deleteFromFront(struct Student* head) {
     if (head == NULL) {
         printf("List is empty. Nothing to delete.\n");
@@ -59,6 +62,7 @@ struct Student* deleteFromFront(struct Student* head) {
     return head;
 }
 
+// Function to display the student record at the front of the list
 void showFront(struct Student* head) {
     if (head == NULL) {
         printf("List is empty.\n");
@@ -72,14 +76,14 @@ void showFront(struct Student* head) {
     printf("Marks: %.2f\n", head->marks);
 }
 
-
-void searchRecordAtPosition(int position) {
+// Function to search and display the student record at a given position
+void searchRecordAtPosition(struct Student* head, int position) {
     if (head == NULL) {
         printf("List is empty. No records to search.\n");
         return;
     }
 
-    struct Student *temp = head;
+    struct Student* temp = head;
     int count = 1;
 
     while (temp != NULL && count < position) {
@@ -89,12 +93,14 @@ void searchRecordAtPosition(int position) {
 
     if (temp != NULL) {
         printf("Record at position %d:\n", position);
-        printf("Name: %s, Roll No.: %d, Course: %s, Marks: %d\n", temp->name, temp->rollNo, temp->course, temp->marks);
+        printf("Roll Number: %d, Name: %s, Course: %s, Marks: %.2f\n",
+               temp->rollNumber, temp->name, temp->course, temp->marks);
     } else {
         printf("Position %d exceeds the length of the list.\n", position);
     }
 }
 
+// Function to update a student record with a given rollNumber
 struct Student* updateRecord(struct Student* head, int rollNumber, char name[], char course[], float marks) {
     struct Student* temp = head;
 
@@ -113,6 +119,7 @@ struct Student* updateRecord(struct Student* head, int rollNumber, char name[], 
     return head;
 }
 
+// Function to display all student records in the list
 void display(struct Student* head) {
     if (head == NULL) {
         printf("List is empty.\n");
@@ -141,7 +148,7 @@ int main() {
         printf("1. Insert Student Record from Last\n");
         printf("2. Delete Student Record from Front\n");
         printf("3. Show Student Record (Front)\n");
-        printf("4. Search Student Record (Position)\n");
+        printf("4. Search Student Record by Position\n");
         printf("5. Update Student Record\n");
         printf("6. Display All Student Records\n");
         printf("0. Exit\n");
@@ -170,9 +177,11 @@ int main() {
                 showFront(head);
                 break;
 
-                printf("Enter position to search: ");
+            case 4:
+                printf("Enter Position to Search: ");
                 scanf("%d", &position);
-                searchRecordAtPosition(position);
+                searchRecordAtPosition(head, position);
+                break;
 
             case 5:
                 printf("Enter Roll Number to Update: ");
