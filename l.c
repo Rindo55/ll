@@ -73,7 +73,7 @@ void showFront(struct Student* head) {
 }
 
 
-void searchRecordAtPosition(struct Student* head, int position) {
+void searchPosition(struct Student* head, int position) {
     if (head == NULL) {
         printf("List is empty. No records to search.\n");
         return;
