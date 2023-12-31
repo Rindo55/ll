@@ -173,7 +173,7 @@ int main() {
             case 4:
                 printf("Enter Roll Number to Search: ");
                 scanf("%d", &rollNumber);
-                position = searchPosition(head, rollNumber);
+                position = searchPosition(head, position);
                 if (position != -1) {
                     printf("Roll Number found at position: %d\n", position);
                 } else {
