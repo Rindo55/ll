@@ -137,8 +137,6 @@ void display(struct Student* head) {
 }
 
 int main() {
-    struct Student* head = NULL;
-
     int choice, rollNo, marks, position;
     char name[50], course[20];
 
