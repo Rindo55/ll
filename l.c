@@ -128,6 +128,7 @@ struct Student* updateRecordByPosition(struct Student* head, int position, int r
 }
 
 
+
 // Function to display all student records in the list
 void display(struct Student* head) {
     if (head == NULL) {
