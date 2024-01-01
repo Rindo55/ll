@@ -139,9 +139,8 @@ void display(struct Student* head) {
 int main() {
     struct Student* head = NULL;
 
-    int choice, rollNumber, position;
-    char name[50], course[50];
-    float marks;
+    int choice, rollNo, marks, position;
+    char name[50], course[20];
 
     do {
         printf("\nStudent Record Management System Menu:\n");
