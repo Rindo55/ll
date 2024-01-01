@@ -207,7 +207,7 @@ int main() {
                 scanf("%s", course);  
                 printf("Enter new marks: ");
                 scanf("%f", &marks);
-                head = updateRecord(head, rollNumber, name, course, marks);
+                head = updateRecordByPosition(head, position, rollNumber, name, course, marks);
                 break;
 
             case 6:
