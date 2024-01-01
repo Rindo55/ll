@@ -101,7 +101,8 @@ void searchRecordAtPosition(struct Student* head, int position) {
 }
 
 // Function to update a student record with a given position
-struct Student* updateRecord(struct Student* head, int position, int rollNumber, char name[], char course[], float marks) {
+// Function to update a student record with a given position
+struct Student* updateRecordByPosition(struct Student* head, int position, int rollNumber, const char name[], const char course[], float marks) {
     if (head == NULL) {
         printf("List is empty. Cannot update record.\n");
         return head;
