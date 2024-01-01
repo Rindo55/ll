@@ -164,9 +164,7 @@ int main() {
                 fgets(name, sizeof(name), stdin); 
                 name[strcspn(name, "\n")] = '\0';
                 printf("Enter Course (CSE/AIML/DS/IT/ECE)): ");
-                getchar(); 
-                fgets(course, sizeof(course), stdin); 
-                course[strcspn(course, "\n")] = '\0';
+                scanf("%s", course);  
                 printf("Enter Marks: ");
                 scanf("%f", &marks);
                 head = insertFromLast(head, rollNumber, name, course, marks);
@@ -194,9 +192,7 @@ int main() {
                 fgets(name, sizeof(name), stdin); 
                 name[strcspn(name, "\n")] = '\0';
                 printf("Enter new course (CSE/AIML/DS/IT/ECE): ");
-                getchar(); 
-                fgets(course, sizeof(course), stdin); 
-                course[strcspn(course, "\n")] = '\0';
+                scanf("%s", course);  
                 printf("Enter new marks: ");
                 scanf("%f", &marks);
                 head = updateRecord(head, rollNumber, name, course, marks);
