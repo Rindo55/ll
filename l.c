@@ -117,7 +117,7 @@ void updateRecord(int position, char name[], int rollNumber, char course[], int 
 
     if (temp != NULL) {
         strcpy(temp->name, name);
-        temp->rollNo = rollNumber;
+        temp->rollNumber = rollNumber;
         strcpy(temp->course, course);
         temp->marks = marks;
         printf("Record at position %d updated successfully.\n", position);
