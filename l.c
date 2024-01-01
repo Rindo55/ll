@@ -112,7 +112,7 @@ struct Student* updateRecordByPosition(struct Student* head, int position, char 
 
     while (temp != NULL) {
         if (counter == position) {
-            temp->rollNumber, rollNumber
+            temp->rollNumber = rollNumber;
             strcpy(temp->name, name);
             strcpy(temp->name, name);
             strcpy(temp->course, course);
