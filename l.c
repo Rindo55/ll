@@ -101,7 +101,7 @@ void searchRecordAtPosition(struct Student* head, int position) {
 }
 
 // Function to update a student record with a given position
-struct Student* updateRecordByPosition(struct Student* head, int position, char name[], char course[], float marks) {
+struct Student* updateRecordByPosition(struct Student* head, int position, int rollNumber, char name[], char course[], float marks) {
     if (head == NULL) {
         printf("List is empty. Cannot update record.\n");
         return head;
@@ -113,7 +113,6 @@ struct Student* updateRecordByPosition(struct Student* head, int position, char 
     while (temp != NULL) {
         if (counter == position) {
             temp->rollNumber = rollNumber;
-            strcpy(temp->name, name);
             strcpy(temp->name, name);
             strcpy(temp->course, course);
             temp->marks = marks;
