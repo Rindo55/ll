@@ -101,31 +101,29 @@ void searchRecordAtPosition(struct Student* head, int position) {
 }
 
 // Function to update a student record with a given position
-// Function to update a student record with a given position
-struct Student* updateRecordByPosition(struct Student* head, int position, int rollNumber, const char name[], const char course[], float marks) {
+void updateRecord(int position, char name[], int rollNo, char course[], int marks) {
     if (head == NULL) {
-        printf("List is empty. Cannot update record.\n");
-        return head;
+        printf("List is empty. No records to update.\n");
+        return;
     }
 
-    struct Student* temp = head;
-    int counter = 1;
+    struct Student *temp = head;
+    int count = 1;
 
-    while (temp != NULL) {
-        if (counter == position) {
-            temp->rollNumber = rollNumber;
-            strcpy(temp->name, name);
-            strcpy(temp->course, course);
-            temp->marks = marks;
-            printf("Student record at position %d updated.\n", position);
-            return head;
-        }
+    while (temp != NULL && count < position) {
         temp = temp->next;
-        counter++;
+        count++;
     }
 
-    printf("Position not found. Cannot update record.\n");
-    return head;
+    if (temp != NULL) {
+        strcpy(temp->name, name);
+        temp->rollNo = rollNo;
+        strcpy(temp->course, course);
+        temp->marks = marks;
+        printf("Record at position %d updated successfully.\n", position);
+    } else {
+        printf("Position %d exceeds the length of the list.\n", position);
+    }
 }
 
 
@@ -208,7 +206,7 @@ int main() {
                 scanf("%s", course);  
                 printf("Enter new marks: ");
                 scanf("%f", &marks);
-                head = updateRecordByPosition(head, position, rollNumber, name, course, marks);
+                updateRecord(position, name, rollNo, course, marks);
                 break;
 
             case 6:
