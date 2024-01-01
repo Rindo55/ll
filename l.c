@@ -100,24 +100,34 @@ void searchRecordAtPosition(struct Student* head, int position) {
     }
 }
 
-// Function to update a student record with a given rollNumber
-struct Student* updateRecord(struct Student* head, int rollNumber, char name[], char course[], float marks) {
+// Function to update a student record with a given position
+struct Student* updateRecordByPosition(struct Student* head, int position, char name[], char course[], float marks) {
+    if (head == NULL) {
+        printf("List is empty. Cannot update record.\n");
+        return head;
+    }
+
     struct Student* temp = head;
+    int counter = 1;
 
     while (temp != NULL) {
-        if (temp->rollNumber == rollNumber) {
+        if (counter == position) {
+            temp->rollNumber, rollNumber
+            strcpy(temp->name, name);
             strcpy(temp->name, name);
             strcpy(temp->course, course);
             temp->marks = marks;
-            printf("Student record updated.\n");
+            printf("Student record at position %d updated.\n", position);
             return head;
         }
         temp = temp->next;
+        counter++;
     }
 
-    printf("Roll Number not found. Cannot update record.\n");
+    printf("Position not found. Cannot update record.\n");
     return head;
 }
+
 
 // Function to display all student records in the list
 void display(struct Student* head) {
@@ -185,7 +195,9 @@ int main() {
                 break;
 
             case 5:
-                printf("Enter Roll Number to Update: ");
+                printf("Enter position to Update: ");
+                scanf("%d", &position);
+                printf("Enter new Roll Number: ");
                 scanf("%d", &rollNumber);
                 printf("Enter new name: ");
                 getchar(); 
