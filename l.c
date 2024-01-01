@@ -11,6 +11,8 @@ struct Student {
     struct Student* prev;
 };
 
+struct Student *head = NULL;
+
 // Function to create a new student record
 struct Student* createStudent(int rollNumber, char name[], char course[], float marks) {
     struct Student* newStudent = (struct Student*)malloc(sizeof(struct Student));
