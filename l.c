@@ -161,8 +161,10 @@ int main() {
                 printf("Enter Roll Number: ");
                 scanf("%d", &rollNumber);
                 printf("Enter Name: ");
-                scanf("%s", name);
-                printf("Enter Course: ");
+                getchar(); 
+                fgets(name, sizeof(name), stdin); 
+                name[strcspn(name, "\n")] = '\0';
+                printf("Enter Course (CSE/AIML/DS/IT/ECE): ");
                 scanf("%s", course);
                 printf("Enter Marks: ");
                 scanf("%f", &marks);
@@ -184,17 +186,17 @@ int main() {
                 break;
 
             case 5:
-                printf("Enter Roll Number to Update: ");
-                scanf("%d", &rollNumber);
-                printf("Enter name: ");
-                getchar(); 
-                fgets(name, sizeof(name), stdin); 
-                name[strcspn(name, "\n")] = '\0'
-                printf("Enter New Course: ");
+                printf("Enter position to update: ");
+                scanf("%d", &position);
+                printf("Enter new name: ");
+                scanf("%s", name);
+                printf("Enter new roll no.: ");
+                scanf("%d", &rollNo);
+                printf("Enter new course (CSE/AIML/DS/IT/ECE): ");
                 scanf("%s", course);
-                printf("Enter New Marks: ");
-                scanf("%f", &marks);
-                head = updateRecord(head, rollNumber, name, course, marks);
+                printf("Enter new marks: ");
+                scanf("%d", &marks);
+                updateRecord(position, name, rollNo, course, marks);
                 break;
 
             case 6:
