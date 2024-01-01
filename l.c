@@ -137,8 +137,10 @@ void display(struct Student* head) {
 }
 
 int main() {
-    int choice, rollNo, marks, position;
-    char name[50], course[20];
+    int choice, rollNumber, position;
+    float marks;
+    char name[50], course[50];
+    struct Student* head = NULL;
 
     do {
         printf("\nStudent Record Management System Menu:\n");
@@ -161,8 +163,10 @@ int main() {
                 getchar(); 
                 fgets(name, sizeof(name), stdin); 
                 name[strcspn(name, "\n")] = '\0';
-                printf("Enter Course (CSE/AIML/DS/IT/ECE): ");
-                scanf("%s", course);
+                printf("Enter Course (CSE/AIML/DS/IT/ECE)): ");
+                getchar(); 
+                fgets(course, sizeof(course), stdin); 
+                course[strcspn(course, "\n")] = '\0';
                 printf("Enter Marks: ");
                 scanf("%f", &marks);
                 head = insertFromLast(head, rollNumber, name, course, marks);
@@ -183,17 +187,19 @@ int main() {
                 break;
 
             case 5:
-                printf("Enter position to update: ");
-                scanf("%d", &position);
+                printf("Enter Roll Number to Update: ");
+                scanf("%d", &rollNumber);
                 printf("Enter new name: ");
-                scanf("%s", name);
-                printf("Enter new roll no.: ");
-                scanf("%d", &rollNo);
+                getchar(); 
+                fgets(name, sizeof(name), stdin); 
+                name[strcspn(name, "\n")] = '\0';
                 printf("Enter new course (CSE/AIML/DS/IT/ECE): ");
-                scanf("%s", course);
+                getchar(); 
+                fgets(course, sizeof(course), stdin); 
+                course[strcspn(course, "\n")] = '\0';
                 printf("Enter new marks: ");
-                scanf("%d", &marks);
-                updateRecord(position, name, rollNo, course, marks);
+                scanf("%f", &marks);
+                head = updateRecord(head, rollNumber, name, course, marks);
                 break;
 
             case 6:
