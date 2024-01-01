@@ -186,8 +186,10 @@ int main() {
             case 5:
                 printf("Enter Roll Number to Update: ");
                 scanf("%d", &rollNumber);
-                printf("Enter New Name: ");
-                scanf("%s", name);
+                printf("Enter name: ");
+                getchar(); 
+                fgets(name, sizeof(name), stdin); 
+                name[strcspn(name, "\n")] = '\0'
                 printf("Enter New Course: ");
                 scanf("%s", course);
                 printf("Enter New Marks: ");
